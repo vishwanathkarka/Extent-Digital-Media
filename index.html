@@ -52,7 +52,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            /* padding-top: 1.5rem; */
+            /* padding-bottom: 1.5rem; */
+            padding-left: 5%;
+            padding-right: 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -81,7 +84,7 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 110px;
             width: auto;
             filter: drop-shadow(0 2px 8px rgba(230, 57, 70, 0.3));
             transition: filter 0.3s ease;
@@ -282,12 +285,17 @@
         .hero-visual {
             position: relative;
             animation: fadeInUp 1s ease-out 0.6s both;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .stat-card {
@@ -297,7 +305,7 @@
             border: 1px solid rgba(230, 57, 70, 0.15);
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
             display: flex;
@@ -305,6 +313,8 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+            min-height: 150px;
+            box-sizing: border-box;
         }
 
         .stat-card::before {
@@ -331,7 +341,7 @@
 
         .stat-number {
             font-family: 'Syne', sans-serif;
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
             color: var(--accent);
             margin-bottom: 0.5rem;
@@ -340,6 +350,9 @@
             line-height: 1.2;
             width: 100%;
             display: block;
+            white-space: nowrap;
+            overflow: visible;
+            word-break: keep-all;
         }
 
         @keyframes countPulse {
@@ -349,12 +362,14 @@
 
         .stat-label {
             color: var(--text-dim);
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
             text-align: center;
             line-height: 1.4;
             width: 100%;
             display: block;
             margin: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         /* Services Section */
@@ -628,7 +643,7 @@
         }
 
         .footer-brand img {
-            height: 60px;
+            height: 120px;
             width: auto;
             filter: drop-shadow(0 2px 8px rgba(230, 57, 70, 0.2));
         }
@@ -670,6 +685,18 @@
             color: var(--text-dim);
         }
 
+        /* Desktop optimizations */
+        @media (min-width: 1400px) {
+            .stat-number {
+                font-size: 3.2rem;
+            }
+
+            .stat-card {
+                padding: 2.5rem;
+                min-height: 160px;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .hero-text h1 {
@@ -679,6 +706,15 @@
             .stats-grid {
                 gap: 1.5rem;
             }
+
+            .stat-number {
+                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            }
+
+            .stat-card {
+                padding: 1.75rem;
+                min-height: 140px;
+            }
         }
 
         @media (max-width: 1024px) {
@@ -687,7 +723,7 @@
             }
 
             .logo img {
-                height: 40px;
+                height: 70px;
             }
 
             .nav-links {
@@ -775,7 +811,7 @@
             }
 
             .logo img {
-                height: 35px;
+                height: 55px;
             }
 
             .cta-btn {
@@ -815,10 +851,12 @@
 
             .stat-card {
                 padding: 1.5rem;
+                min-height: 120px;
             }
 
             .stat-number {
                 font-size: 2.5rem;
+                white-space: nowrap;
             }
 
             .section-header h2 {
@@ -876,7 +914,7 @@
             }
 
             .footer-brand img {
-                height: 50px;
+                height: 80px;
             }
         }
 
@@ -911,7 +949,7 @@
         <!-- Navigation -->
         <nav>
             <div class="logo">
-                <img src="./extent-digital-media.png" alt="Extent Digital Media" style="height: 50px; width: auto;">
+                <img src="./extent-digital-media.png" alt="Extent Digital Media" style="height: 100px; width: auto;">
             </div>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
@@ -940,7 +978,7 @@
                 <div class="hero-visual">
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number">5M+</div>
+                            <div class="stat-number">100M+</div>
                             <div class="stat-label">Monthly Impressions</div>
                         </div>
                         <div class="stat-card">
